@@ -20,7 +20,12 @@ namespace DotnetPath.Test
             if (cantBeZero)
             {
                 b += 1;
+                              
             }
+            cantBeZero = true;
+            a = cantBeZero ? 1 : 0; 
+
+
             // Use ternary to asing 1 on a variable.
 
             Assert.Equal(a, b);
@@ -34,6 +39,9 @@ namespace DotnetPath.Test
             {
                 b = "Hello";
             }
+
+            a = a ??=  "World";
+
             //use the ?? null check operator to asing other value to a Variable
             Assert.NotNull(b);
             Assert.NotNull(a);
