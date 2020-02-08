@@ -22,6 +22,20 @@ namespace DotnetPath.Test.Services
         }
 
         public WeatherResponse GetWeather() => GetWeatherAtPoint(DefaultLat, DefaultLong);
+        public WeatherResponse GetWeather(decimal a, decimal b) => GetWeatherAtPoint(a,b);
 
+        public WeatherResponse GetWeather(double t, double y) => GetWeatherAtPoint(Convert.ToDecimal(t), Convert.ToDecimal(y));
+
+        public WeatherResponse GetWeather(string LatLon)
+        {
+            var lalo = JsonConvert.DeserializeObject<LaLo>(LatLon);
+            return GetWeatherAtPoint(lalo.Latitude, lalo.Longitude);
+        }
+
+        public WeatherResponse GetWeather(string latlon, string separator)
+        {
+            var latilongi = latlon.Split(separator);
+            return GetWeatherAtPoint(decimal.Parse(latilongi[0]), decimal.Parse(latilongi[1]));   
+        }
     }
 }
