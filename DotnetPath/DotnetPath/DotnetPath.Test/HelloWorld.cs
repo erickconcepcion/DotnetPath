@@ -104,7 +104,7 @@ namespace DotnetPath.Test
             // Create a GetWeather overload that acept two string, the first is the string that has
             // two decimal nums separeted by a character and the other string is the char or chars
             // to split the string and parse both nums to decimal return the weather
-            var splitStructure = "18.478661,-69.916360}";
+            var splitStructure = "18.478661,-69.916360";
             var weather = _weatherService.GetWeather(splitStructure, ",");
             Assert.NotNull(weather);
             Assert.Equal(200, weather.statuscode);
